@@ -1,0 +1,25 @@
+{
+    "name": "chencha/everlytic",
+    "description": "",
+    "authors": [
+        {
+            "name": "Chencha Jacob",
+            "email": "jacob@chenchatech.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/lib",
+            "src/Facades",
+            "src/Everlytic.php"
+        ],
+        "psr-0": {
+            "Chencha\\Everlytic\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
