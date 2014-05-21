@@ -18,19 +18,19 @@ The documentation for the API can be found here http://www.everlytic.co.za/featu
 3. Register the service provider in your app/config/app.php
 
 
-'providers' => array(
+    'providers' => array(
 
-    'Chencha\Everlytic\EverlyticServiceProvider',
+        'Chencha\Everlytic\EverlyticServiceProvider',
 
-)
+    )
 
 4. Register the Facade in app/config/app.php 
 
-'aliases' => array(
+    'aliases' => array(
 
-    'Everlytic'=>'Chencha\Everlytic\Facades\Everlytic',
+        'Everlytic'=>'Chencha\Everlytic\Facades\Everlytic',
 
-)
+    )
 
 5. Publish your credentials using Artisan CLI
 
@@ -48,76 +48,76 @@ The wrapper provides access to all the underlying functions provided by the php 
 
 Sample usage:
 
-<?php
-Create a new contact
-// Contact - get
-$createdContactId = $result['result']['id'];
+    <?php
+    Create a new contact
+    // Contact - get
+    $createdContactId = $result['result']['id'];
 
-$gotContact = Everlytic::getContact($createdContactId);
+    $gotContact = Everlytic::getContact($createdContactId);
 
-// Contact - getBatch
-$filter = array();
-$filter['contact_country_id'] = '1';
+    // Contact - getBatch
+    $filter = array();
+    $filter['contact_country_id'] = '1';
 
-$page = 1;
-$count = 10;
-$order = 'contact_name';
-$direction = ORDER_ASC;
-$result = Everlytic::listContacts($filter, $page, $count, $order, $direction);
+    $page = 1;
+    $count = 10;
+    $order = 'contact_name';
+    $direction = ORDER_ASC;
+    $result = Everlytic::listContacts($filter, $page, $count, $order, $direction);
 
-// Contact - update
-$updates = array();
-$updates['contact_name'] = 'test';
-$result = Everlytic::updateContact(1, $updates);
+    // Contact - update
+    $updates = array();
+    $updates['contact_name'] = 'test';
+    $result = Everlytic::updateContact(1, $updates);
 
-// List - getBatch
-$filter = array();
-$filter['list_name'] = 'none';
+    // List - getBatch
+    $filter = array();
+    $filter['list_name'] = 'none';
 
-$page = 1;
-$count = 10;
-$order = 'list_name';
-$direction = ORDER_ASC;
-$result = Everlytic::getLists($filter, $page, $count, $order, $direction);
+    $page = 1;
+    $count = 10;
+    $order = 'list_name';
+    $direction = ORDER_ASC;
+    $result = Everlytic::getLists($filter, $page, $count, $order, $direction);
 
-// List - create
-$list = array();
-$list['list_name'] = 'testing_list';
-$list['list_owner_name'] = 'john';
-$list['list_owner_email'] = 'jh@example.com';
-$result = Everlytic::createList($list);
-$createdListId = $result['id'];
+    // List - create
+    $list = array();
+    $list['list_name'] = 'testing_list';
+    $list['list_owner_name'] = 'john';
+    $list['list_owner_email'] = 'jh@example.com';
+    $result = Everlytic::createList($list);
+    $createdListId = $result['id'];
 
-// List - get
-$gotList = Everlytic::getList($createdListId);
+    // List - get
+    $gotList = Everlytic::getList($createdListId);
 
-// Message - getBatch
-$filter = array();
-$filter['message_type'] = MESSAGE_TYPE_EMAIL;
+    // Message - getBatch
+    $filter = array();
+    $filter['message_type'] = MESSAGE_TYPE_EMAIL;
 
-$page = 1;
-$count = 10;
-$order = 'message_subject';
-$direction = ORDER_ASC;
-$result = Everlytic::getMessages($filter, $page, $count, $order, $direction);
+    $page = 1;
+    $count = 10;
+    $order = 'message_subject';
+    $direction = ORDER_ASC;
+    $result = Everlytic::getMessages($filter, $page, $count, $order, $direction);
 
-// Message - create
-$message = array();
-$message['message_subject'] = 'a test message';
-$message['message_from_email'] = 'message@test.com';
-$message['message_from_name'] = 'johnny tester';
-$message['message_reply_email'] = 'jt@test.com';
-$message['message_type'] = MESSAGE_TYPE_EMAIL;
-$result = Everlytic::createMessage($message);
-$createdMessageId = $result['id'];
+    // Message - create
+    $message = array();
+    $message['message_subject'] = 'a test message';
+    $message['message_from_email'] = 'message@test.com';
+    $message['message_from_name'] = 'johnny tester';
+    $message['message_reply_email'] = 'jt@test.com';
+    $message['message_type'] = MESSAGE_TYPE_EMAIL;
+    $result = Everlytic::createMessage($message);
+    $createdMessageId = $result['id'];
 
-// Message - get
-$gotMessage = Everlytic::getMessage($createdMessageId);
+    // Message - get
+    $gotMessage = Everlytic::getMessage($createdMessageId);
 
-// Message - update
-$updates = array();
-$updates['message_from_name'] = 'Michael';
-$result = Everlytic::updateMessage($createdMessageId, $updates);
+    // Message - update
+    $updates = array();
+    $updates['message_from_name'] = 'Michael';
+    $result = Everlytic::updateMessage($createdMessageId, $updates);
 
-?>
+    ?>
 
