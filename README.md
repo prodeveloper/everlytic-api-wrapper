@@ -52,6 +52,18 @@ Sample usage:
 
     <?php
     Create a new contact
+    $contact = array();
+    $contact['contact_mobile'] = '0726785544';
+    $contact['contact_email'] = 'bob@test.com';
+    $contact['contact_name'] = 'bob';
+    $contact['contact_lastname'] = 'jones';
+    $listIds = array(
+        1 => CONTACT_SUBSCRIPTION_STATUS_SUBSCRIBED,
+        2 => CONTACT_SUBSCRIPTION_STATUS_SUBSCRIBED
+    );
+    $contact['list_id'] = $listIds;
+    $contact['on_duplicate'] = CONTACT_ACTION_UPDATE;
+    $result = Everlytic::createContact($contact);
     // Contact - get
     $createdContactId = $result['result']['id'];
 
