@@ -9,9 +9,9 @@ The documentation for the API can be found here http://www.everlytic.co.za/featu
 ##Installation
 
 
-1. Update your composer.json file and this line to your require
+1. Update your composer.json file and this line to your require ***
 
-"chencha/everlytic": "dev-master" ***
+    "chencha/everlytic": "dev-master"
 
 2. Run composer update to get the files
 
@@ -34,9 +34,11 @@ The documentation for the API can be found here http://www.everlytic.co.za/featu
 
 5. Publish your credentials using Artisan CLI
 
-php artisan config:publish chencha/everlytic ***
+    php artisan config:publish chencha/everlytic ***
 
-Edit the config file app/config/packages/chencha/everlytic/api.php
+Edit the config file 
+    
+    app/config/packages/chencha/everlytic/api.php
 
 Replace the user, url and api key with the ones provided by everlytic
 
